@@ -1,14 +1,19 @@
-# étape de build
-FROM node:lts-alpine as build-stage
-WORKDIR /app
-COPY ./src/package*.json ./
-RUN npm install
-COPY ./src/ ./
-RUN npm run build
+FROM nginx:alpine as build
 
-# étape de production
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
-ENTRYPOINT [ "nginx -g 'daemon off;'" ]
+RUN apk add --update wget
+    
+ARG HUGO_VERSION="0.88.1"
+RUN wget --quiet "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz" && \
+    tar xzf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
+    rm -r hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
+    mv hugo /usr/bin
+
+COPY ./src/ /app
+WORKDIR /app
+RUN hugo
+
+#Copy static files to Nginx
+FROM nginx:alpine
+COPY --from=build /app/public /usr/share/nginx/html
+
+WORKDIR /usr/share/nginx/html
