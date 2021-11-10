@@ -15,7 +15,7 @@ toc: true
 
 {{< alert icon="💡" text="You can change the commands in the scripts section of `./package.json`." />}}
 
-## create
+## credate
 
 Create new content for your site:
 
