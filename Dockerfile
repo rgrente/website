@@ -1,8 +1,8 @@
 # étape de build
-FROM node:14.17.4-alpine as build-stage
+FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY ./src/package*.json ./
-RUN npm install --ignore-verification-failure
+RUN npm install
 COPY ./src/ ./
 RUN npm run build
 
