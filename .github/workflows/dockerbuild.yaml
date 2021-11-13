@@ -44,4 +44,5 @@ jobs:
         with:
           push: true
           cache-from: type=local,src=public/
+          cache-to: type=local,dest=/public
           tags: rgrente/website:latest
