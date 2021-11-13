@@ -43,4 +43,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
+          cache-from: type=local,src=public/
           tags: rgrente/website:latest
