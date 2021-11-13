@@ -2,7 +2,7 @@
 FROM node:14.17.4-alpine as build-stage
 WORKDIR /app
 COPY ./src/package*.json ./
-RUN npm install
+RUN npm install --ignore-verification-failure
 COPY ./src/ ./
 RUN npm run build
 
