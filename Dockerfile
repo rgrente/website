@@ -1,7 +1,8 @@
 # étape de build
-FROM node:lts-alpine as build-stage
+FROM node:16.9.1-alpine as build-stage
 WORKDIR /app
 COPY ./package*.json ./
+RUN npm install npm@7.21.1 -g
 RUN npm -v
 RUN npm install
 COPY . ./
