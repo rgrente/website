@@ -26,6 +26,9 @@ jobs:
       - name: Build production website
         run: npm run build
 
+      - name: Build production website
+        run: ls
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
