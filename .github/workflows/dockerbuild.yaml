@@ -27,4 +27,4 @@ jobs:
         run: ls public
 
       - name: try
-        run: docker build -t rgrente/website:latest
+        run: docker build . -t rgrente/website:latest
