@@ -8,7 +8,7 @@ author: "Me"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: true
 description: "This post describe how i integrated an MCZ stove in my home automation system"
