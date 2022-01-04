@@ -43,11 +43,11 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "https://sdk.bitmoji.com/render/panel/20048676-99678759267_1-s5-v1.png?transparent=1&palette=1&scale=1"
+    #favicon16x16: "<link / abs url>"
+    #favicon32x32: "<link / abs url>"
+    #apple_touch_icon: "<link / abs url>"
+    #safari_pinned_tab: "<link / abs url>"
 
   label:
     text: "RG"
